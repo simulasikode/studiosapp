@@ -39,11 +39,11 @@ const socialLinks = [
 const Footer = () => {
   return (
     <footer
-      className="relative h-[480px] -mb-[10px] -mx-[10px] bg-white dark:bg-[#121212]"
+      className="relative h-[520px] -mb-[10px] -mx-[10px] bg-white dark:bg-[#121212]"
       style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%" }}
     >
-      <div className="relative h-[calc(100vh+480px)] -top-[100vh]">
-        <div className="sticky top-[calc(100vh-480px)] h-[480px]">
+      <div className="relative h-[calc(100vh+520px)] -top-[100vh]">
+        <div className="sticky top-[calc(100vh-520px)] h-[520px]">
           <div className="relative h-full w-full flex flex-col justify-between">
             <div className="flex shrink-0">
               <div className="flex flex-col gap-2 mt-10 ml-6">
@@ -65,10 +65,18 @@ const Footer = () => {
               <h5 className="font-extrabold text-[12vw] leading-[82%] tracking-tighter mt-10">
                 Simulasi Studio
               </h5>
-              <p className="text-xs text-foreground mr-2 mb-2">
-                © {new Date().getFullYear()} Simulasi Studio. All rights
-                reserved.
-              </p>
+              <div className="relative mb-2">
+                {" "}
+                <p className="text-xs text-foreground mr-2">
+                  © {new Date().getFullYear()} Simulasi Studio. All rights
+                  reserved.
+                </p>
+                <span className="flex space-x-1">
+                  <p className="text-xs text-foreground mr-2">
+                    <b>Version:</b> {process.env.APP_VERSION}
+                  </p>
+                </span>
+              </div>
             </div>
           </div>
         </div>
