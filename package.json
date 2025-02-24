@@ -3,6 +3,7 @@
   "version": "1.0.0-beta.1",
   "private": true,
   "scripts": {
+    "inject-changelog": "node ../studiosapp/src/scripts/inject-changelog.js",
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
