@@ -3,11 +3,8 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import useSignup from "../../hooks/auth/useSignup";
-import { useToast } from "@/app/service/color-process/utils/toast";
-import {
-  inputClasses,
-  buttonClasses,
-} from "@/app/service/color-process/utils/constants";
+import { useToast } from "../../utils/toast";
+import { inputClasses, buttonClasses } from "../../utils/constants";
 import { isValidEmail } from "../../hooks/auth/authUtils";
 
 const SignupPage = () => {
@@ -122,7 +119,7 @@ const SignupPage = () => {
         <p className="text-center mt-4">
           Already have an account?{" "}
           <a
-            href="/service/color-process/auth/login"
+            href="/color-process/auth/login"
             className="text-blue-500 hover:underline"
           >
             Login

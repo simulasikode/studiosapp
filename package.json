@@ -60,6 +60,6 @@
     "typescript": "^5"
   },
   "commitizen": {
-    "path": "cz-conventional-changelog"
+    "path": "node_modules/cz-git"
   }
 }

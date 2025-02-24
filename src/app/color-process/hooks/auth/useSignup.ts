@@ -5,7 +5,7 @@ import {
   createUserWithEmailAndPassword,
   updateProfile,
 } from "firebase/auth";
-import { useToast } from "@/app/service/color-process/utils/toast"; // Adjust path
+import { useToast } from "../../utils/toast"; // Adjust path
 import { createUserDocument, getErrorMessage } from "./authUtils"; // We'll create this next
 
 const useSignup = () => {

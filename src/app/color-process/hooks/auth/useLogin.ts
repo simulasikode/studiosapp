@@ -1,7 +1,7 @@
 // hooks/auth/useLogin.ts
 import { useState } from "react";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { useToast } from "@/app/service/color-process/utils/toast"; // Adjust path
+import { useToast } from "../../utils/toast"; // Adjust path
 import { getErrorMessage } from "./authUtils"; // <-- IMPORT getErrorMessage from authUtils.ts
 
 const useLogin = () => {

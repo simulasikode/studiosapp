@@ -30,7 +30,7 @@ const Authentication = () => {
 
   // Not logged in or is a guest user. Show Login/Signup link.
   return (
-    <Link href="/service/color-process/auth/login">
+    <Link href="/color-process/auth/login">
       <button className="text-sm hover:underline">
         <FaSignInAlt className="inline-block mr-1" /> Login / Signup
       </button>

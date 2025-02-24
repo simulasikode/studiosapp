@@ -1,4 +1,4 @@
-// app/service/color-process/page.tsx
+// /app/color-process/page.tsx
 "use client";
 import { useState, useEffect, useCallback, useMemo } from "react";
 import convert from "color-convert";
@@ -223,17 +223,11 @@ const CalculatorGuideTab = () => {
       </ul>
       <p className="text-sm mt-3 italic text-gray-600">
         Note: Saving and PDF export are disabled for guest users. Please{" "}
-        <Link
-          href="/service/color-process/auth/signup"
-          className="text-blue-500 hover:underline"
-        >
+        <Link href="/auth/signup" className="text-blue-500 hover:underline">
           sign up
         </Link>{" "}
         or{" "}
-        <Link
-          href="/service/color-process/auth/login"
-          className="text-blue-500 hover:underline"
-        >
+        <Link href="/auth/login" className="text-blue-500 hover:underline">
           log in
         </Link>{" "}
         to unlock these features.

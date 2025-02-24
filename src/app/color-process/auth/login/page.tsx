@@ -3,11 +3,8 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import useLogin from "../../hooks/auth/useLogin";
 import useGoogleSignIn from "../../hooks/auth/useGoogleSignIn";
-import { useToast } from "@/app/service/color-process/utils/toast";
-import {
-  inputClasses,
-  buttonClasses,
-} from "@/app/service/color-process/utils/constants";
+import { useToast } from "../../utils/toast";
+import { inputClasses, buttonClasses } from "../../utils/constants";
 import { isValidEmail } from "../../hooks/auth/authUtils";
 import { FaGoogle, FaEye, FaEyeSlash } from "react-icons/fa";
 
@@ -40,7 +37,7 @@ const LoginPage = () => {
     try {
       await login(email, password);
       showToast("Success", "Logged in successfully!", "success");
-      router.push("/service/color-process");
+      router.push("/color-process");
     } catch (error) {
       console.error("Login error:", error);
     }
@@ -49,14 +46,14 @@ const LoginPage = () => {
   const handleGoogleLogin = async () => {
     try {
       await googleSignIn();
-      router.push("/service/color-process");
+      router.push("/color-process");
     } catch (error) {
       console.error("Google Login error:", error);
     }
   };
 
   const handleContinueAsGuest = () => {
-    router.push("/service/color-process"); // Directly navigate to the color-process page
+    router.push("/color-process"); // Directly navigate to the color-process page
   };
 
   const togglePasswordVisibility = () => {
@@ -144,10 +141,7 @@ const LoginPage = () => {
         </form>
         <p className="text-center mt-4">
           Don&apos;t have an account?{" "}
-          <a
-            href="/service/color-process/auth/signup"
-            className="text-blue-500 hover:underline"
-          >
+          <a href="/auth/signup" className="text-blue-500 hover:underline">
             Sign up
           </a>
         </p>

@@ -1,7 +1,7 @@
 // hooks/auth/useSignOut.ts
 import { useState } from "react";
 import { getAuth, signOut } from "firebase/auth";
-import { useToast } from "@/app/service/color-process/utils/toast"; // Adjust path
+import { useToast } from "../..//utils/toast"; // Adjust path
 import { getErrorMessage } from "./authUtils";
 
 const useSignOut = () => {

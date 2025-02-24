@@ -3,7 +3,7 @@ import { useState } from "react";
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { db } from "@/firebase/config"; // Adjust path
-import { useToast } from "@/app/service/color-process/utils/toast"; // Adjust path
+import { useToast } from "../../utils/toast"; // Adjust path
 import { getErrorMessage } from "./authUtils"; // <-- IMPORT getErrorMessage from authUtils.ts
 
 const useGoogleSignIn = () => {
