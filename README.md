@@ -39,8 +39,6 @@ Homepage of Simulasi Studio with Apps [Press Price](https:simulasi.studio/servic
 
 Homepage of Simulasi Studio with Apps [Press Price](https:simulasi.studio/service/pressprice) and [Color Process Calculator](https://simulasi.studio/service/color-process).
 
-> > > > > > > Stashed changes
-
 ## Get started:
 
 # <<<<<<< Updated upstream
@@ -59,7 +57,5 @@ Homepage of Simulasi Studio with Apps [Press Price](https:simulasi.studio/servic
 ---
 
 # Update 24 Feb 2025
-
-> > > > > > > Stashed changes
 
 - Last deploy `v1.3.0` — add feature `/service/color-process` firebase authentication.
