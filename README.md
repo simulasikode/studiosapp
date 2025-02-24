@@ -53,7 +53,6 @@ Homepage of Simulasi Studio with Apps [Press Price](https:simulasi.studio/servic
 - display the final result using a simple table, Paper Size, Number of colors, price per sheet, and total cost.
 
 <!-- CHANGELOG_BEGIN -->
-
 # Changelog
 
 All notable changes to this project will be documented in this file.
