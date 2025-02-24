@@ -1,9 +1,10 @@
 {
   "name": "simulasi.studio",
   "version": "1.2.0-beta.1",
+  "type": "module",
   "private": true,
   "scripts": {
-    "inject-changelog": "node ../studiosapp/src/scripts/inject-changelog.js",
+    "inject-changelog": "node ../studiosapp/src/scripts/inject-changelog.mjs",
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
@@ -67,7 +68,7 @@
   },
   "config": {
     "commitizen": {
-      "path": "node_modules/cz-git/lib/index.js"
+      "path": "cz-git"
     }
   }
 }

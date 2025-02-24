@@ -8,19 +8,16 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
         with:
-          fetch-depth: 0 # Required for `git describe` to work correctly
+          fetch-depth: 0
 
       - name: Get Latest Tag
         id: get_tag
         run: |
-          TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "no-tag")
+          TAG=$(git describe --tags --abbrev=0)
           echo "::set-output name=tag::$TAG"
-        shell: bash
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
@@ -32,7 +29,7 @@ jobs:
 
       - name: Build Next.js app
         env:
-          GIT_TAG: ${{ steps.get_tag.outputs.tag }} # Expose to build process, if needed
+          GIT_TAG: ${{ steps.get_tag.outputs.tag }}
         run: npm run build
 
       - name: Export Next.js app (if using static export)
@@ -40,15 +37,13 @@ jobs:
 
       - name: Create version.js
         run: |
-          VERSION="${{ steps.get_tag.outputs.tag }}"
-          echo "export const version = '$VERSION';" > ./out/version.js
-        shell: bash
+          echo "export const version = '${{ steps.get_tag.outputs.tag }}';" > ./out/version.js # Ensure it's in out folder
 
-      - name: Deploy to Firebase Hosting
-        uses: FirebaseExtended/action-hosting-deploy@v0
+      - name: Set up Firebase CLI
+        uses: w9jds/firebase-action@v11.0.0
         with:
-          repoToken: "${{ secrets.GITHUB_TOKEN }}"
-          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}"
-          channelId: live
-          projectId: your-firebase-project-id
-          target: your-firebase-target
+          args: deploy --only hosting
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          PROJECT_PATH: ./ # Or the directory of your Next.js project, if it's not the root
+          HOSTING_SOURCE: ./out # Or ./.next if not using `next export`
