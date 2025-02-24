@@ -52,9 +52,8 @@ Homepage of Simulasi Studio with Apps [Press Price](https:simulasi.studio/servic
 - Simple input for this page, there is only the number of colors and total print.
 - display the final result using a simple table, Paper Size, Number of colors, price per sheet, and total cost.
 
-## Changelog
-
 <!-- CHANGELOG_BEGIN -->
+
 # Changelog
 
 All notable changes to this project will be documented in this file.
@@ -80,5 +79,3 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated styling for better readability.
 
 <!-- CHANGELOG_END -->
-
-[... rest of README ...]
