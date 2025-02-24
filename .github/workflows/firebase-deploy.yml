@@ -40,7 +40,7 @@ jobs:
           echo "export const version = '${{ steps.get_tag.outputs.tag }}';" > ./out/version.js # Ensure it's in out folder
 
       - name: Set up Firebase CLI
-        uses: w9jds/firebase-action@releases/v11
+        uses: w9jds/firebase-action@v11.0.0
         with:
           args: deploy --only hosting
         env:
