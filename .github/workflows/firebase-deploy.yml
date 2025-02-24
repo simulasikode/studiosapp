@@ -1,0 +1,49 @@
+name: Deploy to Firebase Hosting
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Get Latest Tag
+        id: get_tag
+        run: |
+          TAG=$(git describe --tags --abbrev=0)
+          echo "::set-output name=tag::$TAG"
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Next.js app
+        env:
+          GIT_TAG: ${{ steps.get_tag.outputs.tag }}
+        run: npm run build
+
+      - name: Export Next.js app (if using static export)
+        run: npm run export # Only if you're using `next export`
+
+      - name: Create version.js
+        run: |
+          echo "export const version = '${{ steps.get_tag.outputs.tag }}';" > ./out/version.js # Ensure it's in out folder
+
+      - name: Set up Firebase CLI
+        uses: w9jds/firebase-action@releases/v11
+        with:
+          args: deploy --only hosting
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          PROJECT_PATH: ./ # Or the directory of your Next.js project, if it's not the root
+          HOSTING_SOURCE: ./out # Or ./.next if not using `next export`

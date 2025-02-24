@@ -1,11 +1,10 @@
 import type { NextConfig } from "next";
-import * as packageJson from "./package.json";
 
 const nextConfig: NextConfig = {
   output: "export",
   reactStrictMode: true,
   env: {
-    APP_VERSION: packageJson.version,
+    GIT_TAG: process.env.GIT_TAG || "development",
   },
   images: {
     unoptimized: true,

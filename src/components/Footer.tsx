@@ -6,6 +6,8 @@ import {
   FaPinterest,
   FaSpotify,
 } from "react-icons/fa";
+import * as version from "../public/version.js";
+console.log("App Version:", version.version);
 
 const socialLinks = [
   {
@@ -73,7 +75,7 @@ const Footer = () => {
                 </p>
                 <span className="flex space-x-1">
                   <p className="text-xs text-foreground mr-2">
-                    <b>Version:</b> {process.env.APP_VERSION}
+                    Version: {version.version}
                   </p>
                 </span>
               </div>
