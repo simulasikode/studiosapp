@@ -8,16 +8,11 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v3
         with:
-          fetch-depth: 0
-
-      - name: Get Latest Tag
-        id: get_tag
-        run: |
-          TAG=$(git describe --tags --abbrev=0)
-          echo "::set-output name=tag::$TAG"
+          fetch-depth: 0 # Required for `inject-changelog` to work
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
@@ -27,9 +22,23 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Inject Changelog
+        run: |
+          npm run inject-changelog
+          git add CHANGELOG.md
+          git commit -m "docs(changelog): update changelog" || echo "No changes to commit" # Handle no changes
+          git push origin HEAD:main || echo "No changes to push"
+
+      - name: Get Latest Tag
+        id: get_tag
+        run: |
+          TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "no-tag")
+          echo "::set-output name=tag::$TAG"
+        shell: bash
+
       - name: Build Next.js app
         env:
-          GIT_TAG: ${{ steps.get_tag.outputs.tag }}
+          GIT_TAG: ${{ steps.get_tag.outputs.tag }} # Expose to build process, if needed
         run: npm run build
 
       - name: Export Next.js app (if using static export)
@@ -37,13 +46,15 @@ jobs:
 
       - name: Create version.js
         run: |
-          echo "export const version = '${{ steps.get_tag.outputs.tag }}';" > ./out/version.js # Ensure it's in out folder
+          VERSION="${{ steps.get_tag.outputs.tag }}"
+          echo "export const version = '$VERSION';" > ./out/version.js
+        shell: bash
 
-      - name: Set up Firebase CLI
-        uses: w9jds/firebase-action@v11.0.0
+      - name: Deploy to Firebase Hosting
+        uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          args: deploy --only hosting
-        env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-          PROJECT_PATH: ./ # Or the directory of your Next.js project, if it's not the root
-          HOSTING_SOURCE: ./out # Or ./.next if not using `next export`
+          repoToken: "${{ secrets.GITHUB_TOKEN }}"
+          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}"
+          channelId: live
+          projectId: studios-9c34c
+          target: production
