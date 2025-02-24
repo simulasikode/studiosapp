@@ -60,8 +60,8 @@ const menuSections = [
   {
     title: "Services",
     items: [
-      { name: "Press Price", link: "/service/pressprice" },
-      { name: "The Process Color", link: "/service/color-process" },
+      { name: "Press Price", link: "/press-price" },
+      { name: "The Process Color", link: "/color-process" },
       {
         name: "Request",
         link: "https://forms.fillout.com/t/pFE4XxyiXGus",
