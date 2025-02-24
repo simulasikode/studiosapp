@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --font-regular: var(--font-regular);
+  --font-bold: var(--font-bold);
+  --font-mono: var(--font-mono);
+}
+
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+  ::selection {
+    background-color: var(--foreground);
+    color: var(--background);
+  }
+}
+
+:root {
+  --background: #fbf9f1;
+  --foreground: #191919;
+  --primary: #5e5e5e;
+}
+
+.light {
+  --background: #fbf9f1;
+  --foreground: #191919;
+  --primary: #5e5e5e;
+}
+
+.red {
+  --background: #ffe6e6;
+  --foreground: #ff0000;
+  --primary: #ff4d4d;
+}
+
+.green {
+  --background: #f0fff0;
+  --foreground: #009900;
+  --primary: #4db84d;
+}
+
+.blue {
+  --background: #e6e6ff;
+  --foreground: #0000ff;
+  --primary: #4d4dff;
+}
+
+.dark {
+  --background: #191919;
+  --foreground: #fbf9f1;
+  --primary: #adaa9f;
+}
+
+svg {
+  overflow: visible;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+}

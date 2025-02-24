@@ -33,15 +33,13 @@ Homepage of Simulasi Studio with Apps [Press Price](https:simulasi.studio/servic
 - Calculation formula using `Materia + Production + Overhead + Labor = Capital Price*2 = Price/print quality = Price per sheet`
 - slide feature for selecting paper size with the paper size display along with the size in mm.
 - Simple input for this page, there is only the number of colors and total print.
-- # display the final result using a simple table, Paper Size, Number of colors, price per sheet, and total cost.
+- display the final result using a simple table, Paper Size, Number of colors, price per sheet, and total cost.
 
 # Simulasi Studio
 
 Homepage of Simulasi Studio with Apps [Press Price](https:simulasi.studio/service/pressprice) and [Color Process Calculator](https://simulasi.studio/service/color-process).
 
 ## Get started:
-
-# <<<<<<< Updated upstream
 
 - Duplicate this repository. [studioApp](https://github.com/simulasikode/studiosapp)
 - and run `npm install`
