@@ -6,7 +6,7 @@ import {
   FaPinterest,
   FaSpotify,
 } from "react-icons/fa";
-import * as version from "../public/version.js";
+import * as version from "../../public/version.js";
 console.log("App Version:", version.version);
 
 const socialLinks = [
