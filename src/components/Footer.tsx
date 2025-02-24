@@ -31,7 +31,7 @@ const socialLinks = [
   },
   {
     name: "GitHub",
-    url: "https://github.com/simulasikode",
+    url: "https://github.com/simulasikode/studiosapp",
     icon: <FaGithub size={24} />,
   },
 ];
