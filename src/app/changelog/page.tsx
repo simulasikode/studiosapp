@@ -6,7 +6,7 @@ export default function ChangelogPage() {
 
   useEffect(() => {
     fetch(
-      "https://raw.githubusercontent.com/simulasikode/simulasi-cc/main/CHANGELOG.md",
+      "https://raw.githubusercontent.com/simulasikode/studiosapp/main/CHANGELOG.md",
     )
       .then((res) => res.text())
       .then((data) => setChangelog(data));

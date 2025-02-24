@@ -1,9 +1,6 @@
 // hooks/useCmykState.ts
 import { useState, useEffect } from "react";
-import {
-  UseCmykStateHook,
-  CmykState,
-} from "@/app/service/color-process/utils/types"; // Import types
+import { UseCmykStateHook, CmykState } from "../utils/types"; // Import types
 
 // Custom Hook for Managing CMYK State
 const useCmykState: UseCmykStateHook = (

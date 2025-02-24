@@ -73,14 +73,14 @@ const HeroSection = () => {
         >
           {subheading.split(": ")[0]}:{" "}
           <Link
-            href={"/service/pressprice"}
+            href={"/press-price"}
             className="relative bg-[#00FFFF] text-primary dark:text-background border border-background hover:border-primary rounded-full py-1 px-3"
           >
             {subheading.split(": ")[1].split(" and ")[0]}
           </Link>{" "}
           and{" "}
           <Link
-            href={"/service/color-process"}
+            href={"/color-process"}
             className="bg-[#FF00FF]  border border-background hover:border-primary rounded-full py-1 px-3"
           >
             {subheading.split(": ")[1].split(" and ")[1]}
