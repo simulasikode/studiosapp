@@ -69,7 +69,7 @@ const HeroSection = () => {
         </motion.h1>
         <motion.h2
           style={{ opacity: parallaxHeadingOpacity }}
-          className=" mt-6 text-bold text-[16px] md:text-[20px] leading-normal md:leading-[96%] text-muted-foreground uppercase"
+          className=" mt-6 text-bold text-[20px] leading-[96%] text-muted-foreground max-w-5xl uppercase"
         >
           {subheading.split(": ")[0]}:{" "}
           <Link
