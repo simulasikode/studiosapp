@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.4.1-beta.1](https://github.com/simulasikode/studiosapp/compare/v1.4.0-beta.1...v1.4.1-beta.1) (2025-02-25)
+
+
+### Bug Fixes
+
+* config pre-release-tag ([1433fa3](https://github.com/simulasikode/studiosapp/commit/1433fa3bc04350bc290e17b50d70c27d3aa2fd3c))
+
 ## [1.4.0-beta.1](https://github.com/simulasikode/studiosapp/compare/v1.3.0-beta.1...v1.4.0-beta.1) (2025-02-24)
 
 
