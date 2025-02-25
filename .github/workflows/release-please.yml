@@ -4,9 +4,11 @@ on:
   push:
     branches:
       - main
+      - "feature/**"  # Listen to all feature branches
   pull_request:
     branches:
       - main
+      - "feature/**"
 
 jobs:
   release-please:
@@ -18,9 +20,22 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - name: Release Please
+
+      - name: Determine Branch Name
+        id: branch-name
+        run: echo "BRANCH_NAME=${GITHUB_REF#refs/heads/}" >> $GITHUB_ENV
+
+      - name: Release Please - Conditional Configuration
         uses: google-github-actions/release-please-action@v4
         id: release
         with:
-          release-type: node # Ensure this is correct
+          release-type: node
+          # No package-name needed if not a monorepo
           token: ${{ secrets.GITHUB_TOKEN }}
+          config-file: .release-please/config.json # default configuration
+          # Conditionally override config based on branch
+          # Using a multi-line string for clarity
+          # This uses a bash substitution to set prerelease based on the branch
+          # You might need to adjust this bash command for your specific naming convention
+          # This only show if feature branch, you can also config for release branch
+          prerelease: ${{ startsWith(env.BRANCH_NAME, 'feature/') && 'beta' || '' }}
